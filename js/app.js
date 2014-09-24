@@ -1,6 +1,6 @@
 var app = angular.module('DerBewerter',[]);
 
-/*app.config(function($routeProvider){
+app.config(function($routeProvider){
 	$routeProvider
 		 .when("/welcomePage",{
 		    templateUrl:"welcomePage.html",
@@ -21,7 +21,7 @@ var app = angular.module('DerBewerter',[]);
 		.otherwise({
 			redirectTo:"welcomePage"
 		})
-});*/
+});
 
 app.service('DataService',function(){
 
