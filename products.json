@@ -1,0 +1,55 @@
+[
+	{
+		"name":"R",
+		"imageURL":"Widerstand.png",
+		"subcategoryExisting":"true",
+		"subcategory": [
+			{
+				"name":"Poti",
+				"image.URL":"Potis.png",
+				"product": [
+					{
+						"name":"trimmpoti",
+						"productId":"0001",
+						"imageURL":"trimmpoti.png",
+					}
+
+
+				]
+			},
+			{
+				"name":"MetallschichtR"
+			},
+			{
+				"name":"KohleschichtR"
+			}
+		]
+	},
+	{
+		"name":"C",
+		"subcategory": [
+			{
+				"name":"Folien"
+			},
+			{
+				"name":"Keramik"
+			},
+			{
+				"name":"Bipolar"
+			}
+		]
+	},{
+	"name":"L",
+	"subcategory": [
+		{
+			"name":"Luftspule"
+		},
+		{
+			"name":"Ringkern"
+		},
+		{
+			"name":"Sonstiges"
+		}
+	]
+}
+]

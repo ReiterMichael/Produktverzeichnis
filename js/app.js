@@ -38,6 +38,15 @@ app.controller('NavigationController',function(){
 
 app.controller('MainController',function(){
 	console.log("Main CTRL");
+
+	$.getJSON("products.json", function(data) {
+		console.log("Data");
+		console.log(data);
+		// data is a JavaScript object now. Handle it as such
+
+	});
+
+
 	this.categoryNames = ["R", "C", "L"];
 	this.categoryImages = ["Widerstand.img" ,"Kondensator.img" ,"Induktivität.img"];
 
@@ -128,12 +137,7 @@ var rankingExisting = true;
 				"name":"Sonstiges"
 			}
 		]
-	},
+	}
 ];*/
 
 
-$.getJSON("products.json", function(data) {
-	console.log(data);
-	// data is a JavaScript object now. Handle it as such
-
-});
