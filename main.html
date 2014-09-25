@@ -4,9 +4,15 @@
 	<meta charset="UTF-8">
 	<title>DerBewerter</title>
 	<script type="text/javascript" src="js/angular.js"></script>
-	<!--<script type="text/javascript" src="js/jquery-2.0.3.min.map"></script>-->
+	<script src="js/angular-route.min.js"></script>
+	<!--<script type="text/javascript" src="js/angular-route.min.js.map"></script>-Nicht nötig-->
+	<script src="js/sanitize.js" type="application/javascript"></script>
+	<script type="text/javascript" src="js/routie.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery-2.1.1.min.map"></script>-->
+	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="products.json"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
@@ -18,7 +24,7 @@
 	<div class="path">Pfad</div>
 	<nav ng-controller = "NavigationController as nav" class="navigationBar">
 		<div class="list">
-			<div class="category" ng-repeat="category in nav.categories" class="navigationPill" >
+			<div class="category navigationPill" ng-repeat="category in nav.categories">
 				<a href="#category" ng-if="nav.subCategoryExisting == true">
 					{{category}}
 				</a>

@@ -1,12 +1,12 @@
-<div>
+<div ng-controller = "ProductController as product">
 	<h1>{{product.name}}</h1>
-	<div class="imageTile" ng-if="imageExisting">
+	<div class="imageTile" ng-if="product.imageExisting">
 		<img class="img-responsive" ng-src="{{product.image}}">
 	</div>
-	<div class="descriptionTile" ng-if="discriptionExisting">
-		{{product.description}}
+	<div class="descriptionTile" ng-if="product.descriptionExisting">
+		{{description}}
 	</div>
-	<div class="dealerRanking" ng-if="rankingExisting">
+	<div class="dealerRanking" ng-if="product.rankingExisting">
 		<img class="dealerLogo" ng-src="{{dealerLogo}}" ng-repeat="dealerLogo in product.dealerLogos"/>
 	</div>
 	<!--Sternchenbewertung und Kommentar als erste Erweiterung-->

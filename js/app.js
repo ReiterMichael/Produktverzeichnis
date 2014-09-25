@@ -1,4 +1,4 @@
-var app = angular.module('DerBewerter',[]);
+var app = angular.module('DerBewerter',['ngRoute', 'ngSanitize']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -50,9 +50,9 @@ app.controller('MainController',function(){
 });
 
 app.controller('ProductController',function(){
-	var imageExisting = true;
-	var descriptionExisting = true;
-	var rankingExisting = true;
+	this.imageExisting = imageExisting;
+	this.descriptionExisting = descriptionExisting;
+	this.rankingExisting = rankingExisting;
 	this.name = "trimpoti";
 	this.image = "trimpoti.png";
 	this.description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr";
@@ -71,6 +71,9 @@ var subCategory = ["AA","AB","AC"];
 var product = ["AAA", "AAB"];
 var hash = "#category";
 var subCategoryExisting = true;
+var imageExisting = true;
+var descriptionExisting = true;
+var rankingExisting = true;
 
 /*var category = [
 {
@@ -126,11 +129,11 @@ var subCategoryExisting = true;
 			}
 		]
 	},
-];
+];*/
 
 
-/*$.getJSON("document.json", function(data) {
+$.getJSON("products.json", function(data) {
 	console.log(data);
 	// data is a JavaScript object now. Handle it as such
 
-});*/
+});
