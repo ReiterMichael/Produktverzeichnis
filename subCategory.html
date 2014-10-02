@@ -1,9 +1,10 @@
 <div ng-controller = "MainController as main">
-	Produkt1 (KeramikC)
-	Produkt2 (FolienC)
-	Produkt3 (BipolarC)
-	<div class="PreviewTile" ng-repeat="productName in main.productNames">
-		<p>{{productName}}</p>
-		<img class="productPreviewImage" ng-src="{{main.productImages}}">
-	</div>
+	<a ng-href="#product">
+		<div class="previewTile"  ng-repeat="productName in main.productNames track by $index">
+			<div class="tileHeader">
+				<p>{{productName}}</p>
+			</div>
+			<img class="productPreviewImage" ng-src="{{productImage}}" ng-repeat="productImage in main.productImages">
+		</div>
+	</a>
 </div>

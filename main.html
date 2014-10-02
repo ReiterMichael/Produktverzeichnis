@@ -19,32 +19,26 @@
 <body ng-controller = "MainController as main">
 	<header class="header">
 		<img class="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png">
-		<h1 class="largeTitle">Der Bewerter</h1>
+		<a ng-href="#welcomePage">
+			<h1 class="largeTitle">Der Bewerter</h1>
+		</a>
 	</header>
 	<div class="path">Pfad</div>
 	<nav ng-controller = "NavigationController as nav" class="navigationBar">
 		<div class="list">
 			<div class="category navigationPill" ng-repeat="category in nav.categories">
-				<a href="#category" ng-if="nav.subCategoryExisting == true">
+				<a ng-href="#category">
 					{{category}}
 				</a>
-				<a href="#subCategory" ng-if="nav.subCategoryExisting == false">
-					{{category}}
-				</a>
-				<div class="subCategory" ng-repeat="subCategory in nav.subCategories" ng-if="nav.subCategoryExisting == true">
-					<a href="#subCategory">
+				<div class="subCategory" ng-repeat="subCategory in nav.subcategories">
+					<a ng-href="#subCategory">
 						{{subCategory}}
 					</a>
-					<div class="product" ng-repeat="product in nav.products">
-						<a href="#product">
-							{{product}}
+					<div class="product" ng-repeat="productName in nav.productNames track by $index">
+						<a ng-href="#product">
+							{{productName}}
 						</a>
 					</div>
-				</div>
-				<div class="product" ng-repeat="product in nav.products" ng-if="nav.subCategoryExisting == false">
-					<a href="#product">
-						{{product}}
-					</a>
 				</div>
 			</div>
 		</div>

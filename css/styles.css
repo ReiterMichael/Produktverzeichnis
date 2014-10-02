@@ -1,3 +1,9 @@
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+
 .icon{
 	display: inline-block;
 	float: left;
@@ -14,7 +20,6 @@
 	width: 100%;
 	color: white;
 	background: lightblue;
-	font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 
 }
@@ -24,7 +29,7 @@
 	font-size: 32px;
 	margin: 0;
 	padding: 16px;
-
+	font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
@@ -78,11 +83,99 @@
 
 main{
 	display: inline-block;
-	clear: both;
 	margin: 0;
 	padding: 5px;
-	color: #c0c0c0;
-	background-color: lawngreen;
-	font-size: 60px;
-	font-weight: bold;
+	height: 1000px;
+	max-width: 79%;
+	color: #000000;
+	background-color: #f5f5f5;
+	font-size: 20px;
+
+}
+
+
+
+/*-----------------------------------------------------------product.html-------------------------------------------------------*/
+
+.productName{
+	text-align: center;
+	font-size: 40px;
+}
+
+.imageTile{
+	display: inline-block;
+	margin: 10px;
+	padding: 5px;
+	width: 50%;
+	border: 2px solid grey;
+	border-radius: 2px;
+	background-color: #ffff00;
+
+}
+
+.littleProductImage{
+	display: inline-block;
+	max-width: 33%;
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+.descriptionTile{
+	display: inline-block;
+	-webkit-box-align: start;
+	-moz-box-align: start;
+	-ms-box-align: start;
+	box-align: start;
+	margin: 10px;
+	padding: 5px;
+	height: 60px;
+	width: 50%;
+	border: 2px solid grey;
+	border-radius: 2px;
+	background-color: #ffff00;
+	font-size: 12px;
+	overflow: hidden;
+
+}
+
+
+.dealerRanking{
+	margin: 10px;
+	padding: 5px;
+	border: 2px solid grey;
+	border-radius: 2px;
+	background-color: #ffff00;
+
+}
+
+.dealerLogo{
+	height: 50px;
+
+}
+
+
+
+
+
+/*----------------------------------------------------category.html + subCategory.html-------------------------------------------------------*/
+
+.productPreviewImage{
+	max-width: 40px;
+}
+
+
+.previewTile{
+	display: inline-block;
+	margin: 10px;
+	padding: 5px;
+	width: 100px;
+	border: 2px solid grey;
+	border-radius: 2px;
+	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+
+.tileHeader{
+
 }

@@ -1,55 +1,265 @@
 [
 	{
-		"name":"R",
-		"imageURL":"Widerstand.png",
-		"subcategoryExisting":"true",
-		"subcategory": [
+		"name":"Passive Bauelemente",
+		"imageUrl":"https://shop.dcc-versand.de/images/bauelemente/passiv/widerstnde/widerstand_carbon.jpg",
+		"subCategoryExisting":"true",
+		"subCategory": [
 			{
-				"name":"Poti",
-				"image.URL":"Potis.png",
+				"name":"Widerstände",
+				"imageUrl":"Widerstand.png",
 				"product": [
 					{
-						"name":"trimmpoti",
+						"name":"MetallschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"KohleschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
+			},
+			{
+				"name":"Potis",
+				"imageUrl":"Potis.png",
+				"product": [
+					{
+						"name":"Stellpoti",
 						"productId":"0001",
-						"imageURL":"trimmpoti.png",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"Trimmpoti",
+						"productId":"0001",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
 					}
 
 
 				]
 			},
 			{
-				"name":"MetallschichtR"
+				"name":"Kondensatoren",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"MetallschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"MetallschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
 			},
 			{
-				"name":"KohleschichtR"
+				"name":"Induktivitäten",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
 			}
+
+		]
+
+	},
+	{
+		"name":"Aktive Bauelemente",
+		"imageUrl":"https://shop.dcc-versand.de/images/bauelemente/passiv/widerstnde/widerstand_carbon.jpg",
+		"subCategory": [
+			{
+				"name":"Transistoren",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"MetallschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"MetallschichtR",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
+			},
+			{
+				"name":"OPV's",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
+			}
+
 		]
 	},
 	{
-		"name":"C",
-		"subcategory": [
+		"name":"Automatisierung",
+		"imageUrl":"https://shop.dcc-versand.de/images/bauelemente/passiv/widerstnde/widerstand_carbon.jpg",
+		"subCategory": [
 			{
-				"name":"Folien"
+				"name":"SPS",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
 			},
 			{
-				"name":"Keramik"
-			},
-			{
-				"name":"Bipolar"
+				"name":"Industrie PC's",
+				"imageUrl":"Widerstand.png",
+				"product": [
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					},
+					{
+						"name":"",
+						"productId":"0002",
+						"imageUrl":"trimmpoti.png",
+						"description":"Lorem ipsum",
+						"dealer":{
+							"dealerName":"Conrad",
+							"dealerLogo":"conrad.png",
+							"dealerPrice":"7E",
+							"dealerRating":"7.9"
+						}
+					}
+				]
 			}
+
 		]
-	},{
-	"name":"L",
-	"subcategory": [
-		{
-			"name":"Luftspule"
-		},
-		{
-			"name":"Ringkern"
-		},
-		{
-			"name":"Sonstiges"
-		}
-	]
-}
+	}
 ]

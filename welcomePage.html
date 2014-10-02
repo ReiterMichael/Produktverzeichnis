@@ -1,12 +1,10 @@
-<div>
-	Kategorie1 (R)
-	Kategorie2 (C)
-	kategorie3 (L)
-	<h1>Hallo</h1>
+<div ng-controller = "MainController as main"><!--Warum den controller-->
 	<div>
-		<div class="PreviewTile" ng-repeat="categoryName in main.categoryNames">
-			<p>{{categoryName}}</p>
-			<img class="productPreviewImage" ng-src="{{main.categoryImages}}">
-		</div>
+		<a ng-href="#category">
+			<div class="previewTile" ng-repeat="categoryName in main.categoryNames track by $index" ng-click="main.findCategory(this)">
+				<p>{{categoryName}}</p>
+				<img class="productPreviewImage" ng-src="{{main.categoryImages}}">
+			</div>
+		</a>
 	</div>
 </div>

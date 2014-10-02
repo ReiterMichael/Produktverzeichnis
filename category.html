@@ -1,9 +1,11 @@
-<div><!--Nicht immer da-->
-	Subkategorie1 (nicht vorhanden)
-	Subkategorie2 (nicht vorhanden)
-	Subkategorie3 (nicht vorhanden)
-	<div class="PreviewTile" ng-repeat="subCategoryName in main.subCategoryNames">
-		<p>{{subCategoryName}}</p>
-		<img class="productPreviewImage" ng-src="{{main.subCategoryImages}}">
-	</div>
+<div ng-controller = "MainController as main">
+	<!--<div>Kategorie als Ü-schrift</div>-->
+	<a ng-href="#subCategory">
+		<div class="previewTile" ng-repeat="subCategoryName in main.subCategoryNames track by $index">
+			<div class="tileHeader">
+				<p>{{subCategoryName}}</p>
+			</div>
+			<img class="productPreviewImage" ng-src="{{subCategoryImage}}" ng-repeat="subCategoryImage in main.subCategoryImages track by $index">
+		</div>
+	</a>
 </div>
