@@ -1,10 +1,11 @@
-<div ng-controller = "MainController as main"><!--Warum den controller-->
-	<div>
-		<a ng-href="#category">
-			<div class="previewTile" ng-repeat="categoryName in main.categoryNames track by $index" ng-click="main.findCategory(this)">
-				<p>{{categoryName}}</p>
-				<img class="productPreviewImage" ng-src="{{main.categoryImages}}">
+<div>
+	<div></div>
+	<a ng-href="#category">
+		<div class="previewTile" ng-repeat="category in categories track by $index" ng-click="main.findCategoryContent(category.categoryName)">
+			<div class="tileHeader"><!--Könnte auch product id verwenden um Namenskonflikte zu vermeiden-->
+				<p>{{category.categoryName}}</p>
 			</div>
-		</a>
-	</div>
+			<img class="productPreviewImage" ng-src="{{category.categoryImage}}">
+		</div>
+	</a>
 </div>

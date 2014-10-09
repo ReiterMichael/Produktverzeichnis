@@ -1,10 +1,11 @@
-<div ng-controller = "MainController as main">
+<div ng-controller = "ProductController as productCtrl">
+
 	<a ng-href="#product">
-		<div class="previewTile"  ng-repeat="productName in main.productNames track by $index">
+		<div class="previewTile"  ng-repeat="product in products track by $index" ng-click="productCtrl.findProductContent(product.productName)">
 			<div class="tileHeader">
-				<p>{{productName}}</p>
+				<p>{{product.productName}}</p>
 			</div>
-			<img class="productPreviewImage" ng-src="{{productImage}}" ng-repeat="productImage in main.productImages">
+			<img class="productPreviewImage" ng-src="{{product.productImage}}">
 		</div>
 	</a>
 </div>

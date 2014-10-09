@@ -1,11 +1,11 @@
-<div ng-controller = "MainController as main">
+<div>
 	<!--<div>Kategorie als Ü-schrift</div>-->
 	<a ng-href="#subCategory">
-		<div class="previewTile" ng-repeat="subCategoryName in main.subCategoryNames track by $index">
+		<div class="previewTile" ng-repeat="subCategory in subCategories track by $index" ng-click="main.findSubCategoryContent(subCategory.subCategoryName)">
 			<div class="tileHeader">
-				<p>{{subCategoryName}}</p>
+				<p>{{subCategory.subCategoryName}}</p>
 			</div>
-			<img class="productPreviewImage" ng-src="{{subCategoryImage}}" ng-repeat="subCategoryImage in main.subCategoryImages track by $index">
+			<img class="productPreviewImage" ng-src="{{subCategory.subCategoryImage}}">
 		</div>
 	</a>
 </div>

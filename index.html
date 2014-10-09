@@ -22,33 +22,35 @@
 		<a ng-href="#welcomePage">
 			<h1 class="largeTitle">Der Bewerter</h1>
 		</a>
+		<div class="path">Pfad</div>
 	</header>
-	<div class="path">Pfad</div>
-	<nav ng-controller = "NavigationController as nav" class="navigationBar">
+	<div class="wrapper">
+		<nav ng-controller = "NavigationController as nav" class="navigationBar">
 		<div class="list">
 			<div class="category navigationPill" ng-repeat="category in nav.categories">
 				<a ng-href="#category">
-					{{category}}
+					{{category.categoryNames}}
 				</a>
-				<div class="subCategory" ng-repeat="subCategory in nav.subcategories">
+				<div class="subCategory">
 					<a ng-href="#subCategory">
-						{{subCategory}}
+						{{category.subCategoryNames}}
 					</a>
-					<div class="product" ng-repeat="productName in nav.productNames track by $index">
+					<div class="product">
 						<a ng-href="#product">
-							{{productName}}
+							{{category.productNames}}
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</nav>
-	<main>
+		<main>
 		<div class="container-fluid">
 			<ng-view>
 
 			</ng-view>
 		</div>
 	</main>
+	</div>
 </body>
 </html>
