@@ -1,25 +1,27 @@
-<div ng-controller = "ProductController as product">
-	<div class="productName">{{product.productName}}</div>
-	<div class="imageTile" ng-if="product.imageExisting">
-		<img class="productImage img-responsive" ng-src="{{product.productImage}}">
-		<div>
-			<img class="littleProductImage img-responsive" ng-src="{{littleImage}}" ng-repeat="littleImage in product.littleImages track by $index">
+<div>
+	<div class="productName">{{productInfo.productName}}</div>
+	<div class="imageTile" ng-if="productInfo.imageExisting">
+		<img class="productImage img-responsive" ng-src="{{productInfo.productImage}}">
+		<div ng-repeat="littleImage in productInfo.littleImages track by $index">
+			<img class="littleProductImage img-responsive" ng-src="{{littleImage}}">
 		</div>
 	</div>
-	<!--<div class="videoTile" ng-if="product.videoExisting">
-		<img class="productVideo" ng-src="{{product.productVideo}}">
+	<div class="videoTile" ng-if="productInfo.videoExisting">
+		<video class="productVideo" ng-src="{{productInfo.productVideo}}"></video>
 	</div>
-	<div class="commentTile">
-
+	<div class="descriptionTile" ng-if="productInfo.descriptionExisting">
+		{{productInfo.description}}
 	</div>
-	-->
-	<div class="descriptionTile" ng-if="product.descriptionExisting">
-		{{product.description}}
-	</div>
-	<div class="dealerRanking" ng-if="product.rankingExisting">
-		<a ng-href="{{dealerLink}}" ng-repeat="dealerLink in product.dealerLinks">
-			<img class="dealerLogo" ng-src="{{dealerLogo}}" ng-repeat="dealerLogo in product.dealerLogos"/>
+	<div class="dealerRanking" ng-if="productInfo.rankingExisting">
+		<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealers">
+			<img class="dealerLogo" ng-src="{{dealer.dealerLogo}}"/>
 		</a>
+	</div>
+	<div class="commentTile" ng-if="productInfo.commentExisting">
+		<div ng-repeat="comment in productInfo.comment track by $index">
+			<div class="commentAuthor">{{comment.author}}</div>
+			{{comment.content}}
+		</div>
 	</div>
 	<!--Sternchenbewertung und Kommentar als erste Erweiterung-->
 </div>

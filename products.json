@@ -9,9 +9,47 @@
 				"imageUrl":"Widerstand.png",
 				"product": [
 					{
+						"name": "Drehpotentiometer",
+						"productId":"0000",
+						"imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+						"littleImages": [
+							"http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+							"http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+							"http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg"
+						],
+						"videoUrl": "link",
+						"description":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ",
+						"dealer":[
+							{
+								"dealerName":"Conrad",
+								"dealerLink":"http://www.conrad.at/ce/de/Welcome.html",
+								"dealerPrice":"7€",
+								"dealerRating":"7.9"
+							},
+							{
+								"dealerName":"Alibaba",
+								"dealerLink":"http://www.alibaba.com",
+								"dealerPrice":"7€",
+								"dealerRating":"7.9"
+							}
+
+						],
+						"comment":[
+							{
+								"author": "Gordon Shumway",
+								"content": "Lorem Ipsum dolor"
+							},
+							{
+								"author": "John Doe",
+								"content": "Lorem Ipsum dolar sit ament, consetetur"
+							}
+						]
+					},
+					{
 						"name":"MetallschichtR",
-						"productId":"0002",
+						"productId":"0001",
 						"imageUrl":"trimmpoti.png",
+						"videoUrl":"MetallschichtR.mov",
 						"description":"Lorem ipsum",
 						"dealer":{
 							"dealerName":"Conrad",
