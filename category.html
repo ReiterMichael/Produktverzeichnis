@@ -1,5 +1,5 @@
 <div>
-	<!--<div>Kategorie als Ü-schrift</div>-->
+	<div class="categoryHeading">{{categoryName}}</div>
 	<a ng-href="#subCategory">
 		<div class="previewTile" ng-repeat="subCategory in subCategories track by $index" ng-click="main.findSubCategoryContent(subCategory.subCategoryName)">
 			<div class="tileHeader">

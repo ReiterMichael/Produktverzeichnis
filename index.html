@@ -3,47 +3,92 @@
 <head lang="de">
 	<meta charset="UTF-8">
 	<title>DerBewerter</title>
-	<script type="text/javascript" src="js/angular.js"></script>
-	<script src="js/angular-route.min.js"></script>
-	<!--<script type="text/javascript" src="js/angular-route.min.js.map"></script>-Nicht nötig-->
-	<script src="js/sanitize.js" type="application/javascript"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/angular-material.min.js"></script>
+	<!--<script type="text/javascript" src="js/angular-animate.min.js"></script>-->
+	<!--<script type="text/javascript" src="js/angular-animate.min.js.map"></script>-->
+
 	<script type="text/javascript" src="js/routie.min.js"></script>
-	<!--<script type="text/javascript" src="js/jquery-2.1.1.min.map"></script>-->
-	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+	<script type="application/javascript" src="js/sanitize.js"></script>
 	<script type="text/javascript" src="products.json"></script>
 	<script type="text/javascript" src="js/styles.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>-->
+	<link rel="stylesheet" type="text/css" href="css/angular-material.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
-<body ng-controller = "MainController as main" onload="styles()">
-	<header class="header">
-		<img class="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png">
-		<a ng-href="#welcomePage">
-			<h1 class="largeTitle">Der Bewerter</h1>
-		</a>
-		<div class="path">Pfad</div>
-	</header>
+<body ng-controller = "MainController as main">
+	<div class="headerWrapper">
+		<header>
+			<img class="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png">
+			<a ng-href="#welcomePage" ng-click="$scope.findPath('DerBewerter')">
+				<h1 class="largeTitle">Der Bewerter</h1>
+			</a>
+			<a ng-href="#addProduct" class="addProduct">
+				<img class="addProductIcon" src="img/plus.png"/>
+			</a>
+			<div class="searchForm">
+				<input class="searchField" type="text" placeholder="search" name="searchField" ng-model="searchRequest">
+				<a ng-href="#subCategory">
+					<button class="searchButton" type="button" name="searchButton" ng-click="main.search();">Lupe</button>
+				</a>
+			</div>
+
+		</header>
+		<div class="path">
+			<a ng-href="#welcomePage" ng-click="$scope.findPath()">
+				Der Bewerter
+			</a>
+			<a ng-href="#category" ng-show="path.depth >= 1" ng-click="$scope.findPath()" ><!--Wiso kein ng click find..... nötig?-->
+				>>{{path.categoryName}}
+			</a>
+			<a ng-href="#subCategory" ng-show="path.depth >= 2" ng-click="$scope.findPath()">
+				>>{{path.subCategoryName}}
+			</a>
+			<a ng-href="#product" ng-show="path.depth >= 3" ng-click="$scope.findPath()">
+				>>{{path.productName}}
+			</a>
+	</div>
+	</div>
 	<div class="wrapper">
-		<nav ng-controller = "NavigationController as nav" class="navigationBar">
-			<div class="category navigationPill" ng-repeat="category in categories" ng-click="main.findCategoryContent(category.name)">
-				<a ng-href="#category">
+		<md-sidenav class="sidebar" component-id="left" class="md-sidenav-left">
+			<nav ng-controller = "NavigationController as nav" class="navigationBar" ng-hide="showSettings">
+			<div class="category navigationPill" ng-repeat="category in categories">
+				<a ng-href="#category" ng-click="main.findCategoryContent(category.name)">
 					{{category.name}}
 				</a>
-				<div class="subCategory" ng-repeat="subCategory in category.subCategory" ng-click="main.findSubCategoryContent(subCategory.name)">
-					<a ng-href="#subCategory">
+				<div class="subCategory" ng-repeat="subCategory in category.subCategory">
+					<a ng-href="#subCategory" ng-click="main.findSubCategoryContent(subCategory.name)">
 						{{subCategory.name}}
 					</a>
-					<div class="product" ng-repeat="product in subCategory.product" ng-click="productCtrl.findProductContent(product.name)">
-						<a ng-href="#product">
-							{{product.name}}
-						</a>
+					<div ng-controller="ProductController as productCtrl">
+						<div class="product" ng-repeat="product in subCategory.product">
+							<a ng-href="#product" ng-click="findProductContent(product.name)">
+								{{product.name}}
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</nav>
-		<main class="main">
+			</nav>
+			<div class="settings" ng-show="showSettings">
+				<form>
+					Settings
+					<input list="browsers">
+
+					<datalist id="browsers">
+						<option value="Internet Explorer">
+						<option value="Firefox">
+						<option value="Chrome">
+						<option value="Opera">
+						<option value="Safari">
+					</datalist>
+				</form>
+			</div>
+		</md-sidenav>
+		<main flex class="main">
 			<div class="container-fluid">
 				<ng-view>
 

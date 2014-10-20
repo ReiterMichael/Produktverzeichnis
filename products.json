@@ -6,7 +6,7 @@
 		"subCategory": [
 			{
 				"name":"Widerstände",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name": "Drehpotentiometer",
@@ -48,7 +48,7 @@
 					{
 						"name":"MetallschichtR",
 						"productId":"0001",
-						"imageUrl":"trimmpoti.png",
+						"imageUrl":"",
 						"videoUrl":"MetallschichtR.mov",
 						"description":"Lorem ipsum",
 						"dealer":{
@@ -61,7 +61,7 @@
 					{
 						"name":"KohleschichtR",
 						"productId":"0002",
-						"imageUrl":"trimmpoti.png",
+						"imageUrl":"",
 						"description":"Lorem ipsum",
 						"dealer":{
 							"dealerName":"Conrad",
@@ -74,7 +74,7 @@
 			},
 			{
 				"name":"Potis",
-				"imageUrl":"Potis.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"Stellpoti",
@@ -104,7 +104,7 @@
 			},
 			{
 				"name":"Kondensatoren",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"MetallschichtR",
@@ -134,7 +134,7 @@
 			},
 			{
 				"name":"Induktivitäten",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"",
@@ -172,7 +172,7 @@
 		"subCategory": [
 			{
 				"name":"Transistoren",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"MetallschichtR",
@@ -239,7 +239,7 @@
 		"subCategory": [
 			{
 				"name":"SPS",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"",
@@ -269,7 +269,7 @@
 			},
 			{
 				"name":"Industrie PC's",
-				"imageUrl":"Widerstand.png",
+				"imageUrl":"",
 				"product": [
 					{
 						"name":"",

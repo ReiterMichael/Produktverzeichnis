@@ -1,22 +1,23 @@
 body{
+	margin: 0;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+	text-decoration: none;
 }
 
-
-.icon{
-	display: inline-block;
-	float: left;
-	margin: 5px;
-	height: 30px;
-	width: 30px;
-
+a{
+	text-decoration: none;
 }
 
-.header{
+.headerWrapper{
 	display: block;
 	position: fixed;
 	z-index: 99;
+	width: 100%;
+
+}
+
+header{
+	display: block;
 	padding: 10px;
 	margin: 0;
 	width: 100%;
@@ -26,21 +27,71 @@ body{
 
 }
 
+.icon{
+	float: left;
+	margin: 16px;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+
+}
+
 .largeTitle{
 	display: inline-block;
 	font-size: 32px;
-	margin: 0;
-	padding: 16px;
+	margin: 15px;
+	padding: 0;
 	font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
+.searchForm{
+	float: right;
+	margin: 16px;
+	padding: 0;
+
+}
+
+.searchField{
+	float: left;
+	padding: 0 0 0 10px;
+	border: none;
+	border-radius: 15px;
+	background-color: #ffffff;
+	height: 30px;
+}
+
+.searchButton{
+	float: right;
+	margin-left: 10px;
+	padding: 0;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	background-color: #ffffff;
+}
+
+.addProduct{
+	float: right;
+	margin: 16px;
+	padding: 0;
+	height: 30px;
+	border-radius: 100%;
+	background-color: #ffffff;
+
+}
+
+.addProductIcon{
+	margin: 0;
+	height: 30px;
+	width: 30px;
+
+}
+
 .path{
-	position: fixed;
-	z-index: 99;
-	padding-left: 10px;
-	top: 87px;
-	left: 0;
+	display: block;
+	padding: 0 0 0 10px;
+	bottom: 0;
 	width: 100%;
 	color: #ffffff;
 	background-color: lime;
@@ -54,7 +105,7 @@ body{
 	position: absolute;
 	top: 104px;
 	width: 100%;
-	height: 80%;
+	height: 100%;
 
 }
 
@@ -70,9 +121,9 @@ body{
 	font-size: 20px;
 
 }
-/*---------------------------------------------------------------------NAVIGATION-------------------------------------------------------*/
+/*---------------------------------------------------------------------sidebar-------------------------------------------------------*/
 
-.navigationBar{
+.sidebar{
 	display: block;
 	float: left;
 	padding: 10px;
@@ -80,6 +131,10 @@ body{
 	min-height: 100%;
 	background: #4dd0e1;
 	font-size: 18px;
+}
+
+.navigationBar{
+
 }
 
 .navigationPill{
@@ -109,13 +164,19 @@ body{
 	color: white;
 }
 
+.settings{
 
-
+}
 
 
 
 /*----------------------------------------------------category.html + subCategory.html-------------------------------------------------------*/
 
+.categoryHeading{
+	padding: 10px;
+	text-align: center;
+	font-size: 40px;
+}
 
 .previewTile{
 	display: inline-block;
@@ -123,8 +184,6 @@ body{
 	padding: 5px;
 	height: 250px;
 	max-width: 180px;
-	border: 2px solid grey;
-	border-radius: 2px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	cursor: pointer;
@@ -132,13 +191,16 @@ body{
 
 .tileHeader{
 	white-space: normal;
+	margin: 5px;
+	padding: 0;
 
 }
 
 .productPreviewImage{
 	display: block;
-	height: 70%;
-	max-width: 95%;
+	margin: 0;
+
+	max-width: 100%;
 	bottom: 0;
 }
 
@@ -155,15 +217,17 @@ body{
 	margin: 10px;
 	padding: 5px;
 	width: 50%;
-	border: 2px solid grey;
-	border-radius: 2px;
+	max-width: 300px;
 	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 
 }
 
 .productImage{
 	border: 1px solid grey;
 	border-collapse: collapse;
+	height: 50px;
+	width: 50px;
 }
 
 .littleProductImage{
@@ -177,9 +241,8 @@ body{
 	display: inline-block;
 	margin: 10px;
 	padding: 5px;
-	border: 2px solid grey;
-	border-radius: 2px;
 	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
 .descriptionTile{
@@ -192,9 +255,8 @@ body{
 	padding: 5px;
 	height: 60px;
 	width: 50%;
-	border: 2px solid grey;
-	border-radius: 2px;
 	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	font-size: 12px;
 	overflow: hidden;
 
@@ -204,9 +266,8 @@ body{
 .dealerRanking{
 	margin: 10px;
 	padding: 5px;
-	border: 2px solid grey;
-	border-radius: 2px;
 	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 
 }
 
@@ -218,9 +279,8 @@ body{
 .commentTile{
 	margin: 10px;
 	padding: 5px;
-	border: 2px solid grey;
-	border-radius: 2px;
 	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	font-size: 12px;
 }
 

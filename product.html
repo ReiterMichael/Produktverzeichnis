@@ -1,8 +1,9 @@
 <div>
+	Hallo
 	<div class="productName">{{productInfo.productName}}</div>
 	<div class="imageTile" ng-if="productInfo.imageExisting">
 		<img class="productImage img-responsive" ng-src="{{productInfo.productImage}}">
-		<div ng-repeat="littleImage in productInfo.littleImages track by $index">
+		<div style="display: inline-block" ng-repeat="littleImage in productInfo.littleImages track by $index">
 			<img class="littleProductImage img-responsive" ng-src="{{littleImage}}">
 		</div>
 	</div>
@@ -13,7 +14,7 @@
 		{{productInfo.description}}
 	</div>
 	<div class="dealerRanking" ng-if="productInfo.rankingExisting">
-		<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealers">
+		<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealer">
 			<img class="dealerLogo" ng-src="{{dealer.dealerLogo}}"/>
 		</a>
 	</div>
@@ -23,5 +24,6 @@
 			{{comment.content}}
 		</div>
 	</div>
-	<!--Sternchenbewertung und Kommentar als erste Erweiterung-->
+
+	<!--Bewertung-->
 </div>
