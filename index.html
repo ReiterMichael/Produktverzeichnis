@@ -23,7 +23,7 @@
 	<div class="headerWrapper">
 		<header>
 			<img class="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png">
-			<a ng-href="#welcomePage" ng-click="$scope.findPath('DerBewerter')">
+			<a ng-href="#welcomePage" ng-click="main.findPath('DerBewerter')">
 				<h1 class="largeTitle">Der Bewerter</h1>
 			</a>
 			<a ng-href="#addProduct" class="addProduct">
@@ -38,16 +38,16 @@
 
 		</header>
 		<div class="path">
-			<a ng-href="#welcomePage" ng-click="$scope.findPath()">
+			<a ng-href="#welcomePage" ng-click="main.findPath('DerBewerter')"><!--Kommt nicht in diese Funktion-->
 				Der Bewerter
 			</a>
-			<a ng-href="#category" ng-show="path.depth >= 1" ng-click="$scope.findPath()" ><!--Wiso kein ng click find..... nötig?-->
+			<a ng-href="#category" ng-show="path.depth >= 1" ng-click="main.findCategoryContent(path.categoryName)" ><!--Wiso kein ng click find..... nötig?-->
 				>>{{path.categoryName}}
 			</a>
-			<a ng-href="#subCategory" ng-show="path.depth >= 2" ng-click="$scope.findPath()">
+			<a ng-href="#subCategory" ng-show="path.depth >= 2" ng-click="main.findSubCategoryContent(path.subCategoryName)">
 				>>{{path.subCategoryName}}
 			</a>
-			<a ng-href="#product" ng-show="path.depth >= 3" ng-click="$scope.findPath()">
+			<a ng-href="#product" ng-show="path.depth >= 3" ng-click="main.findProductContent(path.productName)">
 				>>{{path.productName}}
 			</a>
 	</div>
@@ -65,7 +65,7 @@
 					</a>
 					<div ng-controller="ProductController as productCtrl">
 						<div class="product" ng-repeat="product in subCategory.product">
-							<a ng-href="#product" ng-click="findProductContent(product.name)">
+							<a ng-href="#product" ng-click="main.findProductContent(product.name)">
 								{{product.name}}
 							</a>
 						</div>
@@ -74,17 +74,16 @@
 			</div>
 			</nav>
 			<div class="settings" ng-show="showSettings">
-				<form>
-					Settings
-					<input list="browsers">
+				<h2>Settings</h2>
 
-					<datalist id="browsers">
-						<option value="Internet Explorer">
-						<option value="Firefox">
-						<option value="Chrome">
-						<option value="Opera">
-						<option value="Safari">
+				<form>
+					<input list="dealers">
+					<datalist id="dealers">
+						<option value="Amazon">
+						<option value="Alibaba">
+						<option value="Reichelt">
 					</datalist>
+
 				</form>
 			</div>
 		</md-sidenav>

@@ -103,7 +103,7 @@ header{
 .wrapper{
 	display: block;
 	position: absolute;
-	top: 104px;
+	top: 101px;
 	width: 100%;
 	height: 100%;
 
@@ -127,7 +127,7 @@ header{
 	display: block;
 	float: left;
 	padding: 10px;
-	min-width: 20%;
+	width: 30%;
 	min-height: 100%;
 	background: #4dd0e1;
 	font-size: 18px;
@@ -214,10 +214,10 @@ header{
 
 .imageTile{
 	display: inline-block;
-	margin: 10px;
+	margin: 5px;
 	padding: 5px;
-	width: 50%;
-	max-width: 300px;
+	width: 30%;
+	max-width: 200px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 
@@ -226,34 +226,54 @@ header{
 .productImage{
 	border: 1px solid grey;
 	border-collapse: collapse;
-	height: 50px;
-	width: 50px;
+	width: 30%;
+	max-width: 200px;
+
 }
 
 .littleProductImage{
 	display: inline-block;
-	max-width: 33%;
+	max-width: 30%;
 	border: 1px solid grey;
 	border-collapse: collapse;
 }
 
 .videoTile{
 	display: inline-block;
-	margin: 10px;
+	margin: 5px;
 	padding: 5px;
+	height: 50px;
+	width: 30%;
+	max-width: 200px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
-.descriptionTile{
+.productVideo{
+	display: block;
+}
+
+.commentTile{
 	display: inline-block;
-	-webkit-box-align: start;
-	-moz-box-align: start;
-	-ms-box-align: start;
-	box-align: start;
+	margin: 5px;
+	padding: 5px;
+	height: 50px;
+	width: 30%;
+	max-width: 200px;
+	background-color: #ffff00;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	font-size: 12px;
+}
+
+.commentAuthor{
+	font-size: 16px;
+}
+
+.descriptionTile{
+	display: block;
 	margin: 10px;
 	padding: 5px;
-	height: 60px;
+	height: 20%;
 	width: 50%;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -276,14 +296,10 @@ header{
 
 }
 
-.commentTile{
-	margin: 10px;
-	padding: 5px;
-	background-color: #ffff00;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
-	font-size: 12px;
+.rating{
+	float: right;
+	height: 20%;
+	width: 10%;
 }
 
-.commentAuthor{
-	font-size: 16px;
-}
+

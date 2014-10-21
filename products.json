@@ -109,7 +109,7 @@
 					{
 						"name":"MetallschichtR",
 						"productId":"0002",
-						"imageUrl":"trimmpoti.png",
+						"imageUrl":"",
 						"description":"Lorem ipsum",
 						"dealer":{
 							"dealerName":"Conrad",
@@ -121,7 +121,7 @@
 					{
 						"name":"MetallschichtR",
 						"productId":"0002",
-						"imageUrl":"trimmpoti.png",
+						"imageUrl":"",
 						"description":"Lorem ipsum",
 						"dealer":{
 							"dealerName":"Conrad",

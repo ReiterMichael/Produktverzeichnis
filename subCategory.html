@@ -1,7 +1,7 @@
-<div ng-controller = "ProductController as productCtrl">
+<div>
 	<div class="categoryHeading">{{subCategoryName}}</div>
 	<a ng-href="#product">
-		<div class="previewTile"  ng-repeat="product in products track by $index" ng-click="findProductContent(product.productName)">
+		<div class="previewTile"  ng-repeat="product in products track by $index" ng-click="main.findProductContent(product.productName)">
 			<div class="tileHeader">
 				<p>{{product.productName}}</p>
 			</div>

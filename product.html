@@ -1,29 +1,36 @@
 <div>
-	Hallo
 	<div class="productName">{{productInfo.productName}}</div>
-	<div class="imageTile" ng-if="productInfo.imageExisting">
-		<img class="productImage img-responsive" ng-src="{{productInfo.productImage}}">
-		<div style="display: inline-block" ng-repeat="littleImage in productInfo.littleImages track by $index">
-			<img class="littleProductImage img-responsive" ng-src="{{littleImage}}">
+	<div class="wrepperA" style="display: block">
+		<div class="imageTile" ng-if="productInfo.imageExisting">
+			<img class="productImage img-responsive" ng-src="{{productInfo.productImage}}">
+			<div style="display: inline-block" ng-repeat="littleImage in productInfo.littleImages track by $index">
+				<img class="littleProductImage img-responsive" ng-src="{{littleImage}}">
+			</div>
+		</div>
+		<div class="videoTile" ng-if="productInfo.videoExisting">
+			<!--<video class="productVideo" ng-src="{{productInfo.productVideo}}"></video>-->
+		</div>
+		<div class="commentTile" ng-if="productInfo.commentExisting">
+			<div ng-repeat="comment in productInfo.comment track by $index">
+				<div class="commentAuthor">{{comment.author}}</div>
+				{{comment.content}}
+			</div>
 		</div>
 	</div>
-	<div class="videoTile" ng-if="productInfo.videoExisting">
-		<video class="productVideo" ng-src="{{productInfo.productVideo}}"></video>
-	</div>
-	<div class="descriptionTile" ng-if="productInfo.descriptionExisting">
-		{{productInfo.description}}
-	</div>
-	<div class="dealerRanking" ng-if="productInfo.rankingExisting">
-		<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealer">
-			<img class="dealerLogo" ng-src="{{dealer.dealerLogo}}"/>
-		</a>
-	</div>
-	<div class="commentTile" ng-if="productInfo.commentExisting">
-		<div ng-repeat="comment in productInfo.comment track by $index">
-			<div class="commentAuthor">{{comment.author}}</div>
-			{{comment.content}}
+	<div class="wrepperB" style="display: block">
+		<div style="display: block">
+			<div class="descriptionTile" ng-if="productInfo.descriptionExisting">
+				{{productInfo.description}}
+			</div>
+			<div class="dealerRanking" ng-if="productInfo.rankingExisting">
+				<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealer">
+					<img class="dealerLogo" ng-src="{{dealer.dealerLogo}}"/>
+				</a>
+			</div>
 		</div>
-	</div>
+		<div class="rating">
 
+		</div>
+	</div>
 	<!--Bewertung-->
 </div>
