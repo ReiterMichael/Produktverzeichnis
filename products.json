@@ -17,7 +17,11 @@
 							"http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
 							"http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg"
 						],
-						"videoUrl": "link",
+						"videos": [
+							"poti.mp4",
+							"poti.mov",
+							"poti.wmv"
+						],
 						"description":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ",
 						"dealer":[
 							{
@@ -29,6 +33,18 @@
 							{
 								"dealerName":"Alibaba",
 								"dealerLink":"http://www.alibaba.com",
+								"dealerPrice":"7€",
+								"dealerRating":"7.9"
+							},
+							{
+								"dealerName":"Amazon",
+								"dealerLink":"http://www.conrad.at/ce/de/Welcome.html",
+								"dealerPrice":"7€",
+								"dealerRating":"7.9"
+							},
+							{
+								"dealerName":"Reichelt",
+								"dealerLink":"http://www.conrad.at/ce/de/Welcome.html",
 								"dealerPrice":"7€",
 								"dealerRating":"7.9"
 							}
@@ -50,13 +66,24 @@
 						"productId":"0001",
 						"imageUrl":"",
 						"videoUrl":"MetallschichtR.mov",
-						"description":"Lorem ipsum",
+						"description":"Es war Sommer 63. Alle nannten mich Baby. Irgendwie hat mir das gefallen. Es war bevor Präsident Kennedy ermordet wurde, bevor es die Beatles gab, und als ich nicht abwarten konnte, der Friedensbewegung anzugehören. Das war der Sommer, in dem ich dachte, dass ich nie einen Jungen finden würde, der so toll ist wie mein Dad.",
 						"dealer":{
 							"dealerName":"Conrad",
-							"dealerLogo":"conrad.png",
+							"dealerLink":"",
 							"dealerPrice":"7E",
 							"dealerRating":"7.9"
-						}
+						},
+						"comment":[
+							{
+								"author": "Frances Baby Houseman",
+								"content": "Ich habe eine Wassermelone getragen"
+							},
+							{
+								"author": "Jonny",
+								"content": "Mein Baby gehört zu mir! Ist das klar?"
+							}
+						]
+
 					},
 					{
 						"name":"KohleschichtR",
@@ -107,7 +134,7 @@
 				"imageUrl":"",
 				"product": [
 					{
-						"name":"MetallschichtR",
+						"name":"Folienkondensator",
 						"productId":"0002",
 						"imageUrl":"",
 						"description":"Lorem ipsum",
@@ -119,7 +146,7 @@
 						}
 					},
 					{
-						"name":"MetallschichtR",
+						"name":"Elektrolytkondensator",
 						"productId":"0002",
 						"imageUrl":"",
 						"description":"Lorem ipsum",
@@ -137,7 +164,7 @@
 				"imageUrl":"",
 				"product": [
 					{
-						"name":"",
+						"name":"Luftspule",
 						"productId":"0002",
 						"imageUrl":"trimmpoti.png",
 						"description":"Lorem ipsum",
@@ -149,7 +176,7 @@
 						}
 					},
 					{
-						"name":"",
+						"name":"Trafo",
 						"productId":"0002",
 						"imageUrl":"trimmpoti.png",
 						"description":"Lorem ipsum",
@@ -175,7 +202,7 @@
 				"imageUrl":"",
 				"product": [
 					{
-						"name":"MetallschichtR",
+						"name":"BJT",
 						"productId":"0002",
 						"imageUrl":"trimmpoti.png",
 						"description":"Lorem ipsum",
@@ -187,7 +214,7 @@
 						}
 					},
 					{
-						"name":"MetallschichtR",
+						"name":"FET",
 						"productId":"0002",
 						"imageUrl":"trimmpoti.png",
 						"description":"Lorem ipsum",

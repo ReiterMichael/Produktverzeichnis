@@ -73,16 +73,14 @@
 				</div>
 			</div>
 			</nav>
-			<div class="settings" ng-show="showSettings">
-				<h2>Settings</h2>
+			<div ng-show="showSettings">
+				<h2 class="settingsHeading">Settings</h2>
 
-				<form>
-					<input list="dealers">
-					<datalist id="dealers">
-						<option value="Amazon">
-						<option value="Alibaba">
-						<option value="Reichelt">
-					</datalist>
+				<form class="settings">
+					<input type="checkbox" name="settingsDealer" value="Alibaba">Alibaba<br>
+					<input type="checkbox" name="settingsDealer" value="Amazon">Amazon<br>
+					<input type="checkbox" name="settingsDealer" value="Conrad">Conrad<br>
+					<input type="checkbox" name="settingsDealer" value="Reichelt">Reichelt
 
 				</form>
 			</div>

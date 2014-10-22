@@ -1,34 +1,76 @@
 <div>
 	<div class="productName">{{productInfo.productName}}</div>
-	<div class="wrepperA" style="display: block">
+	<div style="display: block">
 		<div class="imageTile" ng-if="productInfo.imageExisting">
 			<img class="productImage img-responsive" ng-src="{{productInfo.productImage}}">
-			<div style="display: inline-block" ng-repeat="littleImage in productInfo.littleImages track by $index">
+			<div style="display: inline-block " ng-repeat="littleImage in productInfo.littleImages track by $index">
 				<img class="littleProductImage img-responsive" ng-src="{{littleImage}}">
 			</div>
 		</div>
 		<div class="videoTile" ng-if="productInfo.videoExisting">
-			<!--<video class="productVideo" ng-src="{{productInfo.productVideo}}"></video>-->
+			<div ng-repeat="productVideo in productInfo.productVideos">
+				<video class="productVideo" ng-src="{{productVideo}}"></video>
+			</div>
+
 		</div>
 		<div class="commentTile" ng-if="productInfo.commentExisting">
-			<div ng-repeat="comment in productInfo.comment track by $index">
-				<div class="commentAuthor">{{comment.author}}</div>
-				{{comment.content}}
+			<div class="comment" ng-repeat="comment in productInfo.comments track by $index">
+				<div class="commentAuthor">
+					{{comment.author}}
+				</div>
+				<div class="commentContent">
+					{{comment.content}}
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="wrepperB" style="display: block">
-		<div style="display: block">
+	<div style="display: block">
+		<div style="display: inline-block">
 			<div class="descriptionTile" ng-if="productInfo.descriptionExisting">
 				{{productInfo.description}}
 			</div>
 			<div class="dealerRanking" ng-if="productInfo.rankingExisting">
-				<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealer">
+				<a ng-href="{{dealer.dealerLink}}" ng-repeat="dealer in productInfo.dealers">
 					<img class="dealerLogo" ng-src="{{dealer.dealerLogo}}"/>
 				</a>
 			</div>
 		</div>
-		<div class="rating">
+		<div class="rating" ng-if="productInfo.rankingExisting">
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
+			<div class="hexagon">
+				<div class="hexLeft"></div>
+				<div class="hexMiddle"></div>
+				<div class="hexRight"></div>
+			</div>
 
 		</div>
 	</div>
