@@ -22,22 +22,25 @@ app.config(function($routeProvider){
 			templateUrl:"addProduct.html",
 			controller:"AddController"
 		})
+		.when("/addPreviewPicture",{
+			templateUrl:"addPreviewPicture.html",
+			controller:"MainController"
+		})
 		.otherwise({
 			redirectTo:"welcomePage"
 		})
 });
 
 app.controller('MainController',['$scope', '$http', function($scope, $http){
-	$scope.showSettings = false;
 
 	//Productverzeichnis übertragen & Categorien schaffen
-
+	//eigene funktion machen und im index statt find path aufrufen
+	$scope.showSettings = false;
 	$scope.productRegister = {};     //data
-
 	$http.get("products.json").success(function(data){
 		$scope.productRegister = data;
-
 		$scope.categories = [];
+
 		for(var i = 0; i < $scope.productRegister.length; i++)
 		{
 			var category = $scope.productRegister[i];
@@ -51,12 +54,17 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 				if (category.imageUrl != undefined)
 				{
 					var categoryImage = category.imageUrl;
+					if(category.imageUrl == "")
+					{
+						var addPreviewImage = true;
+					}
 				}
 				//Make new object
 				var obj = {};
 
 				obj.categoryName = categoryName;
 				obj.categoryImage = categoryImage;
+				obj.addPreviewImage = addPreviewImage;
 
 				//Push new Object to the category Array
 				$scope.categories.push(obj);
@@ -88,13 +96,19 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 							}
 							if (subCategory.imageUrl != undefined) {
 								var subCategoryImage = subCategory.imageUrl;
+								if(subCategory.imageUrl == "")
+								{
+									var addPreviewImage = true;
+								}
 							}
+
 
 							//Make new object
 							var obj = {};
 
 							obj.subCategoryName = subCategoryName;
 							obj.subCategoryImage = subCategoryImage;
+							obj.addPreviewImage = addPreviewImage;
 
 							//Push new Object to the category Array
 							$scope.subCategories.push(obj);
@@ -103,8 +117,7 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 				}
 			}
 		}//End for()
-		console.log("Subs:");
-		console.log($scope.subCategories);
+		//console.log($scope.subCategories);
 
 	};
 
@@ -137,8 +150,21 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 										if (product.name != undefined) {
 											var productName = product.name;
 										}
-										if (product.imageUrl != undefined) {
-											var productImage = product.imageUrl;
+										if (product.images != undefined)
+										{
+											if (product.images[0] != undefined)
+											{
+												var productImage = product.images[0];
+												if (product.images[0] == "") {
+													var addPreviewImage = true;
+												}
+											}
+											else{
+												addPreviewImage = true;
+											}
+										}
+										else{
+											addPreviewImage = true;
 										}
 
 										//Make new object
@@ -146,6 +172,7 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 
 										obj.productName = productName;
 										obj.productImage = productImage;
+										obj.addPreviewImage = addPreviewImage;
 
 										//Push new Object to the category Array
 										$scope.products.push(obj);
@@ -160,14 +187,189 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 
 	};
 
+	this.findProductContent = function(searchItem){
+		//console.log("PRODUCTS: ");
+		//console.log($scope.productRegister);
+		//console.log(searchItem);
+
+		findPath(searchItem);
+		$scope.productInfo = {};
+
+		//$scope.showSettings = true;
+
+		for(var i = 0; i < $scope.productRegister.length; i++)
+		{
+			var category = $scope.productRegister[i];
+			if(category != undefined)
+			{
+				if (category.subCategory != undefined)
+				{
+					for (var j = 0; j < category.subCategory.length; j++)
+					{
+						var subCategory = category.subCategory[j];
+						if (subCategory.product != undefined)
+						{
+							for (var k = 0; k < subCategory.product.length; k++)
+							{
+								var product = subCategory.product[k];
+								if (product.name == searchItem)
+								{
+									var productName = product.name;
+
+									if (product.images != undefined) {
+										var productImages = [];
+										for(var l = 0; l < product.images.length; l++)
+										{
+											var image = product.images[l];
+											productImages.push(image);
+										}
+										if(l <= 3)
+										{
+											var addImage = true;
+										}
+										var imageExisting = true;
+									}
+									if (product.videos != undefined) {
+										var productVideos = [];
+										for(var l = 0; l < product.videos.length; l++)
+										{
+											var video = product.videos[l];
+											productVideos.push(video);
+										}
+										if(l <= 2)
+										{
+											var addVideo = true;
+										}
+
+										var videoExisting = true;
+									}
+									if (product.description != undefined) {
+										var description = product.description;
+										var descriptionExisting = true;
+									}
+									if (product.dealer != undefined) {
+										var dealers = [];
+										for(l = 0; l < product.dealer.length; l++)
+										{
+											var dealerLink = product.dealer[l].dealerLink;
+											var dealerLogo;
+											switch (product.dealer[l].dealerName)
+											{
+												case "Conrad": dealerLogo = "http://www.conrad.at/images/default/default/conrad.gif";
+													break;
+												case "Alibaba": dealerLogo = "http://www.momentumsignals.de/wp-content/uploads/breaking-IPO-record.jpg";
+													break;
+												case "Amazon": dealerLogo = "http://media2.giga.de/2013/09/amazon.jpg";
+													break;
+												case "Reichelt": dealerLogo = "http://www.aklamio.com/system/images/603/wall/Reichelt-Elektronik-Logo.jpg";
+													break;
+												default : dealerLogo = "";
+													break;
+											}
+											var dealer = {};
+											dealer.dealerLink = dealerLink;
+											dealer.dealerLogo = dealerLogo;
+											dealers.push(dealer);
+										}
+										var rankingExisting = true;
+									}
+									if (product.comment != undefined) {
+										var comments = [];
+										for(l = 0; l < product.comment.length; l++)
+										{
+											//console.log(product.comment[l].author);
+											var author = product.comment[l].author;
+											var content = product.comment[l].content;
+
+											var comment = {};
+											comment.author = author;
+											comment.content = content;
+											comments.push(comment);
+										}
+										var commentExisting = true;
+									}
+
+									$scope.productInfo.productName = productName;
+									$scope.productInfo.productImages = productImages;
+									$scope.productInfo.productVideos = productVideos;
+									$scope.productInfo.description = description;
+									$scope.productInfo.dealers = dealers;
+									$scope.productInfo.comments = comments;
+									$scope.productInfo.imageExisting = imageExisting;
+									$scope.productInfo.videoExisting = videoExisting;
+									$scope.productInfo.descriptionExisting = descriptionExisting;
+									$scope.productInfo.rankingExisting = rankingExisting;
+									$scope.productInfo.commentExisting = commentExisting;
+
+									$scope.productInfo.addImage = addImage;
+									$scope.productInfo.addVideo = addVideo;
+
+
+									//console.log($scope.productInfo.description);
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}//End for()
+
+		console.log("PRODUCT1: ");
+		console.log($scope.productInfo);
+
+
+		/*$scope.productInfo = {
+		 "productName": "Product1",
+		 "imageExisting": true,
+		 "productImage": "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+		 "littleImages": [
+		 "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+		 "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
+		 "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg"
+		 ],
+		 "videoExisting": true,
+		 "productVideo": "link",
+		 "descriptionExisting": true,
+		 "description":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ",
+		 "rankingExisting": true,
+		 "dealers":[
+		 {
+		 "dealerLink":"http://www.conrad.at/ce/de/Welcome.html",
+		 "dealerLogo":"http://www.conrad.at/images/default/default/conrad.gif"
+		 },
+		 {
+		 "dealerLink":"http://www.alibaba.com",
+		 "dealerLogo":"http://www.momentumsignals.de/wp-content/uploads/breaking-IPO-record.jpg"
+		 }
+		 ],
+		 "commentExisting": true,//false
+		 "comments":[
+		 {
+		 "author": "Gordon Shumway",
+		 "content": "Lorem Ipsum dolor"
+		 },
+		 {
+		 "author": "John Doe",
+		 "content": "Lorem Ipsum dolar sit ament, consetetur"
+		 }
+		 ]
+		 };*/
+
+
+	};
+
 	this.search = function(){
+
+		console.log($scope.productRegister);
 
 		$scope.showSettings = false;
 		var maxSearchResults = 10;
 		$scope.noProductFound = false;
 
 		$scope.products = [];
-		var searchItem = document.getElementsByClassName("searchField")[0].value;
+		var searchField = document.getElementsByClassName("searchField")[0];
+		var searchItem = searchField.value;
 
 		searchItem = searchItem.toLowerCase();
 		searchItem = searchItem.replace(/ /g, "");
@@ -180,24 +382,24 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 			if(category != undefined)  // sicher nicht nötig
 			{
 				/*if(category.name != undefined)
-					 {
-					 if (category.name.toLowerCase().replace(/ /g, "") == searchItem)
-					 {
-					 //alle KetegorieDaten finden
-					 }
-					 }*/
+				 {
+				 if (category.name.toLowerCase().replace(/ /g, "") == searchItem)
+				 {
+				 //alle KetegorieDaten finden
+				 }
+				 }*/
 				if ((category.subCategory != undefined))
 				{
 					for (var j = 0; j < category.subCategory.length; j++)
 					{
 						var subCategory = category.subCategory[j];
 						/*if (subCategory.name != undefined)
-							 {
-							 if (subCategory.name.toLowerCase().replace(/ /g, "") == searchItem)
-							 {
+						 {
+						 if (subCategory.name.toLowerCase().replace(/ /g, "") == searchItem)
+						 {
 
-							 }
-							 }*/
+						 }
+						 }*/
 						if (subCategory.product != undefined)
 						{
 							for (var k = 0; k < subCategory.product.length; k++)
@@ -224,6 +426,9 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 				}
 			}
 		}//End for()
+
+		searchField.innerHTML = "";
+		//console.log(searchField);
 
 		if($scope.products.length > 1)
 		{
@@ -302,179 +507,9 @@ app.controller('MainController',['$scope', '$http', function($scope, $http){
 		}//End for()
 	};
 
-	this.findProductContent = function(searchItem){
-		//console.log("PRODUCTS: ");
-		//console.log($scope.productRegister);
-		//console.log(searchItem);
-
-		findPath(searchItem);
-		$scope.productInfo = {};
-
-		$scope.showSettings = true;
-
-		for(var i = 0; i < $scope.productRegister.length; i++)
-		{
-			var category = $scope.productRegister[i];
-			if(category != undefined)
-			{
-				if (category.subCategory != undefined)
-				{
-					for (var j = 0; j < category.subCategory.length; j++)
-					{
-						var subCategory = category.subCategory[j];
-						if (subCategory.product != undefined)
-						{
-							for (var k = 0; k < subCategory.product.length; k++)
-							{
-								var product = subCategory.product[k];
-								if (product.name == searchItem)
-								{
-									var productName = product.name;
-
-									if (product.imageUrl != undefined) {
-										var productImage = product.imageUrl;
-										var imageExisting = true;
-									}
-									if (product.littleImages != undefined) {
-										var littleImages = [];
-										for(var l = 0; l < product.littleImages.length; l++)
-										{
-											var littleImage = product.littleImages[l];
-											littleImages.push(littleImage);
-										}
-										imageExisting = true;
-									}
-									if (product.videos != undefined) {
-										var productVideos = [];
-										for(var l = 0; l < product.videos.length; l++)
-										{
-											var video = product.videos[l];
-											productVideos.push(video);
-										}
-										var videoExisting = true;
-									}
-									if (product.description != undefined) {
-										var description = product.description;
-										var descriptionExisting = true;
-									}
-									if (product.dealer != undefined) {
-										var dealers = [];
-										for(l = 0; l < product.dealer.length; l++)
-										{
-											var dealerLink = product.dealer[l].dealerLink;
-											var dealerLogo;
-											switch (product.dealer[l].dealerName)
-											{
-												case "Conrad": dealerLogo = "http://www.conrad.at/images/default/default/conrad.gif";
-													break;
-												case "Alibaba": dealerLogo = "http://www.momentumsignals.de/wp-content/uploads/breaking-IPO-record.jpg";
-													break;
-												case "Amazon": dealerLogo = "http://media2.giga.de/2013/09/amazon.jpg";
-													break;
-												case "Reichelt": dealerLogo = "http://www.aklamio.com/system/images/603/wall/Reichelt-Elektronik-Logo.jpg";
-													break;
-												default : dealerLogo = "";
-													break;
-											}
-											var dealer = {};
-											dealer.dealerLink = dealerLink;
-											dealer.dealerLogo = dealerLogo;
-											dealers.push(dealer);
-										}
-										var rankingExisting = true;
-									}
-									if (product.comment != undefined) {
-										var comments = [];
-										for(l = 0; l < product.comment.length; l++)
-										{
-											//console.log(product.comment[l].author);
-											var author = product.comment[l].author;
-											var content = product.comment[l].content;
-
-											var comment = {};
-											comment.author = author;
-											comment.content = content;
-											comments.push(comment);
-										}
-										var commentExisting = true;
-									}
-
-									$scope.productInfo.productName = productName;
-									$scope.productInfo.productImage = productImage;
-									$scope.productInfo.littleImages = littleImages;
-									$scope.productInfo.productVideos = productVideos;
-									$scope.productInfo.description = description;
-									$scope.productInfo.dealers = dealers;
-									console.log($scope.productInfo.description);
-									$scope.productInfo.comments = comments;
-									$scope.productInfo.imageExisting = imageExisting;
-									$scope.productInfo.videoExisting = videoExisting;
-									$scope.productInfo.descriptionExisting = descriptionExisting;
-									$scope.productInfo.rankingExisting = rankingExisting;
-									$scope.productInfo.commentExisting = commentExisting;
-
-
-								}
-							}
-						}
-					}
-				}
-			}
-		}//End for()
-
-		console.log("PRODUCT1: ");
-		console.log($scope.productInfo);
-
-
-		/*$scope.productInfo = {
-		 "productName": "Product1",
-		 "imageExisting": true,
-		 "productImage": "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
-		 "littleImages": [
-		    "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
-		    "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg",
-		    "http://upload.wikimedia.org/wikipedia/commons/b/b5/Potentiometer.jpg"
-		 ],
-		 "videoExisting": true,
-		 "productVideo": "link",
-		 "descriptionExisting": true,
-		 "description":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ",
-		 "rankingExisting": true,
-		 "dealers":[
-		    {
-		        "dealerLink":"http://www.conrad.at/ce/de/Welcome.html",
-		        "dealerLogo":"http://www.conrad.at/images/default/default/conrad.gif"
-			},
-			{
-			    "dealerLink":"http://www.alibaba.com",
-			    "dealerLogo":"http://www.momentumsignals.de/wp-content/uploads/breaking-IPO-record.jpg"
-			}
-		 ],
-		 "commentExisting": true,//false
-		 "comments":[
-			 {
-			    "author": "Gordon Shumway",
-			    "content": "Lorem Ipsum dolor"
-			 },
-			 {
-			    "author": "John Doe",
-				"content": "Lorem Ipsum dolar sit ament, consetetur"
-			 }
-		 ]
-		 };*/
-
-
+	this.setTab = function(tab){
+		$scope.tab = tab;
 	};
-
-
-}]);
-
-app.controller('ProductController',['$scope', '$http', function($scope, $http){
-
-
-
-
-
 
 
 }]);
@@ -535,21 +570,109 @@ app.controller('NavigationController',['$http', "$scope", function($http, $scope
 			$scope.categories.push(categoryObj)
 		}//End for()
 	})
-	.error(function(){
-		console.log("Failed to load products");
-	});
+		.error(function(){
+			console.log("Failed to load products");
+		});
 
 }]);//Soll erst bei klick aufklappen
 
-app.controller('FormController',function(){//Vielleicht kein Extra Kontroller von Nöten
+app.controller('ProductController',['$scope', '$http', function($scope, $http){
+
+
+}]);
+
+app.controller('AddController',['$scope', '$http', function($scope, $http){
+
+
+	this.addImage = function(){
+
+		$http.post("test.json", {word:'Test'}).
+			success(function(data, status, headers, config) {
+				console.log(data);
+			}).
+			error(function(data, status, headers, config) {
+			});
+
+		var imageLinkField = document.getElementsByClassName("imageLinkField");
+		var imageLink = imageLinkField[0].value;
+
+		if($scope.tab == 1)
+		{
+			var searchItem = $scope.categoryName;
+		}
+		if($scope.tab == 2)
+		{
+			searchItem = $scope.subCategoryName;
+		}
+		if($scope.tab == 3)
+		{
+			searchItem = "product";
+		}
+
+
+		//Suchalgorythmus
+		for(var i = 0; i < $scope.productRegister.length; i++)
+		{
+			var category = $scope.productRegister[i];
+
+			if(category != undefined)
+			{
+				if(category.name == searchItem)
+				{
+					category.imageLink = imageLink;
+				}
+				if (category.subCategory != undefined)
+				{
+					for (var j = 0; j < category.subCategory.length; j++)
+					{
+						var subCategory = category.subCategory[j];
+						if (subCategory.name == searchItem)
+						{
+							subCategory.imageLink = imageLink;
+
+						}
+						if (subCategory.product != undefined)
+						{
+
+							for (var k = 0; k < subCategory.product.length; k++)
+							{
+								var product = subCategory.product[k];
+								if (product.name != searchItem)
+								{
+									product.imageLink = imageLink;
+								}
+							}//End for()
+						}
+					}//End for()
+				}
+			}
+		}//End for()
+		//console.log($scope.productRegister);
+
+
+		// Simple POST request example (passing data) :
+		$http.post("products.json", $scope.productRegister).
+			success(function(data, status, headers, config) {
+				//console.log("Succeded Upload");
+				$http.get("products.json").
+					success(function(data, status, headers, config) {
+						//console.log($scope.productRegister);
+					}).
+					error(function(data, status, headers, config) {
+
+					});
+			}).
+			error(function(data, status, headers, config) {
+
+			});
+	};
+
+
+
 	//Neues produkt und einzelne Daten in Datenbank einfügen
-
-	//Bei neuem händler auswahl zw händlern dann richtiges Logo einfügen
-
-
-});
+}]);
 
 
+//Bei neuem händler auswahl zw händlern dann richtiges Logo einfügen
 //Support ist dealer nicht vorhanden wir fügen gern hinzu
 
-//suchfunktion

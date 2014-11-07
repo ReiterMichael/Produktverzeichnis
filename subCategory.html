@@ -6,6 +6,9 @@
 				<p>{{product.productName}}</p>
 			</div>
 			<img class="productPreviewImage" ng-src="{{product.productImage}}">
+			<a ng-href="#addPreviewPicture" ng-if="product.addPreviewImage">
+				<img class="productPreviewImage" ng-src="img/plus.png" ng-click="main.setTab(3)"/>
+			</a>
 		</div>
 	</a>
 	<div ng-if="noProductFound">

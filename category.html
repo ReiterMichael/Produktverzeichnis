@@ -6,6 +6,9 @@
 				<p>{{subCategory.subCategoryName}}</p>
 			</div>
 			<img class="productPreviewImage" ng-src="{{subCategory.subCategoryImage}}">
+			<a ng-href="#addPreviewPicture" ng-if="subCategory.addPreviewImage">
+				<img class="productPreviewImage" ng-src="img/plus.png" ng-click="main.setTab(2)"/>
+			</a>
 		</div>
 	</a>
 </div>

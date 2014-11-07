@@ -27,7 +27,7 @@ header{
 
 }
 
-.icon{
+.derBewerterIcon{
 	float: left;
 	margin: 16px;
 	padding: 0;
@@ -81,7 +81,7 @@ header{
 
 }
 
-.addProductIcon{
+.icon{
 	margin: 0;
 	height: 30px;
 	width: 30px;
@@ -105,7 +105,7 @@ header{
 	position: absolute;
 	top: 101px;
 	width: 100%;
-	height: 100%;
+	height: 90%;
 
 }
 
@@ -115,7 +115,7 @@ header{
 	float: right;
 	margin: 0;
 	padding: 5px;
-	width: 70%;
+	width: 65%;
 	min-height: 100%;
 	color: #000000;
 	background-color: #f5f5f5;
@@ -128,9 +128,9 @@ header{
 	display: block;
 	float: left;
 	padding: 10px;
-	width: 30%;
+	/*width: 30%;
 	/*max-width: 250px;*/
-	min-height: 100%;
+	height: 100%;
 	background: #4dd0e1;
 	font-size: 18px;
 }
@@ -192,7 +192,7 @@ header{
 	display: inline-block;
 	margin: 10px;
 	padding: 5px;
-	height: 250px;
+
 	max-width: 180px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -209,8 +209,7 @@ header{
 .productPreviewImage{
 	display: block;
 	margin: 0;
-
-	max-width: 100%;
+	width: 100%;
 	bottom: 0;
 }
 
@@ -218,14 +217,15 @@ header{
 /*-----------------------------------------------------------product.html-------------------------------------------------------*/
 
 .productName{
+	padding: 10px;
 	text-align: center;
 	font-size: 40px;
 }
 
 .imageTile{
-	display: inline-block;
-	margin: 5px;
-	padding: 5px;
+	float: left;
+	margin: 4px;
+	padding: 4px;
 	width: 30%;
 	max-width: 200px;
 	background-color: #ffff00;
@@ -233,35 +233,37 @@ header{
 
 }
 
-.productImage{
-	border: 1px solid grey;
-	border-collapse: collapse;
-	width: 30%;
-	max-width: 200px;
-
+.imageTile :nth-child(1){
+	margin: 0;
+	width: 100%;
 }
 
-.littleProductImage{
-	display: inline-block;
-	max-width: 30%;
-	border: 1px solid grey;
+.productImage{
+	float: left;
 	border-collapse: collapse;
+	width: 33%;
 }
 
 .videoTile{
 	float: left;
-	margin: 5px;
-	padding: 5px;
+	margin: 4px;
+	padding: 4px;
 	width: 30%;
 	max-width: 200px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
+.videoTile :nth-child(1) {
+	margin: 0;
+	width: 100%;
+
+}
+
 .productVideo{
-	display: block;
+	float: left;
 	margin: 1px;
-	max-width: 100%;
+	width: 48%;
 }
 
 .commentTile{
@@ -275,7 +277,7 @@ header{
 }
 
 .comment{
-	margin: 5px;
+	margin: 4px;
 }
 
 .commentAuthor{
@@ -283,6 +285,7 @@ header{
 }
 
 .commentContent{
+	margin-left: 4px;
 	font-size: 12px;
 }
 
@@ -290,8 +293,8 @@ header{
 
 .descriptionTile{
 	display: block;
-	margin: 10px;
-	padding: 5px;
+	margin: 8px;
+	padding: 4px;
 	height: 20%;
 	width: 50%;
 	background-color: #ffff00;
@@ -304,50 +307,99 @@ header{
 
 .dealerRanking{
 	display: block;
-	margin: 10px;
-	padding: 5px;
-	width: 50%;
+	margin: 8px;
+	padding: 4px;
+	height: 50px;
 	background-color: #ffff00;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 
 }
 
 .dealerLogo{
-	height: 50px;
+	height: 100%;
 
+}
+
+.ratingTile{
+	float: right;
+	background-color: #ffff00;
+	padding: 8px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
 .rating{
-	float: right;
-	background-color: #ffff00;
+	height: 100px;
+	width: 80px;
 }
 
-.hexagon
-{
-	height: 52px;
-	width: 60px;
-
+.rating > div{
+	height: 20px;
+	width: 100%;
 
 }
 
-.hexLeft{
+.rating :nth-child(1) {
+	background-color: lawngreen;
+}
+
+.rating :nth-child(2) {
+	background-color: lime;
+}
+
+.rating :nth-child(3) {
+	background-color: green;
+}
+
+.rating :nth-child(4) {
+	background-color: red;
+}
+
+.rating :nth-child(5) {
+	background-color: darkred;
+}
+
+
+
+.hexLeftPart{
 	float: left;
 	border-right: 15px solid #6C6;
 	border-top: 26px solid transparent;
 	border-bottom: 26px solid transparent;
 }
 
-.hexMiddle{
+.hexMiddlePart{
 	float: left;
-	width: 30px;
-	height: 52px;
-	background-color: #6C6;
+	border-left: 15px solid #6C6;
+	border-right: 15px solid #6C6;
+	border-top: 26px solid #6C6;
+	border-bottom: 26px solid #6C6;
 }
 
-.hexRight{
+.hexRightPart{
 	float: left;
 	border-left: 15px solid #6C6;
 	border-top: 26px solid transparent;
 	border-bottom: 26px solid transparent;
 }
 
+.hex {
+    float: left;
+    margin-right: -13px;
+    margin-bottom: -24px;
+}
+
+.hex :hover{
+	border-color: grey;
+}
+
+.hex-row {
+    clear: left;
+}
+.hex-even {
+    margin-top: 27px;
+}
+
+.hex-middle{
+	margin-left: 47px;
+
+}

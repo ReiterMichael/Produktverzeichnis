@@ -1,0 +1,16 @@
+<div ng-controller = "AddController as add">
+	<!--<a href="#welcomePage">
+		<img src="img/ic_arrow_back_48dp.png" style="float: left">
+	</a>-->
+	<h2>Hier kannst du  ein Bild
+		<span ng-show="tab == 1">zur Kategorie {{categoryName}}</span>
+		<span ng-show="tab == 2">zur Subkategorie {{subCategoryName}}</span>
+		<span ng-show="tab == 3">zum Produkt {{productInfo.productName}}</span>
+		hinzufügen</h2>
+	<form>
+		<input class="imageLinkField" type="text" name="imageLink"/>
+		<button ng-click="add.addImage()">Hinzufügen</button>
+
+	</form>
+
+</div>

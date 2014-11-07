@@ -16,23 +16,25 @@
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>-->
-	<link rel="stylesheet" type="text/css" href="css/angular-material.min.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="css/angular-material.min.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 <body ng-controller = "MainController as main">
 	<div class="headerWrapper">
 		<header>
-			<img class="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png">
+			<img class="derBewerterIcon" src="img/ic_android_48dp.png">
 			<a ng-href="#welcomePage" ng-click="main.findPath('DerBewerter')">
 				<h1 class="largeTitle">Der Bewerter</h1>
 			</a>
 			<a ng-href="#addProduct" class="addProduct">
-				<img class="addProductIcon" src="img/plus.png"/>
+				<img class="icon addProductIcon" src="img/plus.png"/>
 			</a>
 			<div class="searchForm">
 				<input class="searchField" type="text" placeholder="search" name="searchField" ng-model="searchRequest">
 				<a ng-href="#subCategory">
-					<button class="searchButton" type="button" name="searchButton" ng-click="main.search();">Lupe</button>
+					<button class="searchButton" type="button" name="searchButton" ng-click="main.search();">
+						<img class="icon searchIcon" src="img/ic_search_48dp.png">
+					</button>
 				</a>
 			</div>
 
